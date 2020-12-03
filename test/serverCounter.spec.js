@@ -50,7 +50,6 @@ mockAxios.onPut('/counter/dec').reply(() => {
 
 beforeEach(async () => {
   container = document.createElement('div');
-
   createServerCounter(container);
   document.body.appendChild(container);
 });

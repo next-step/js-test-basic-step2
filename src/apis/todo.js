@@ -1,5 +1,6 @@
-import fetchApi from "./fetchApi.js";
-const BASE_URL = "https://blackcoffee-todolist.df.r.appspot.com/api/u";
+import axios from 'axios';
+import fetchApi from './fetchApi.js';
+const BASE_URL = 'https://blackcoffee-todolist.df.r.appspot.com/api/u';
 
 export const getUserList = async () => {
   try {
@@ -12,9 +13,9 @@ export const getUserList = async () => {
 
 export const getTodosByUsername = async (username) => {
   try {
-    const todos = await fetchApi.get(`${BASE_URL}/${username}/item`);
+    const todos = await axios.get(`${BASE_URL}/${username}/item`);
 
-    return todos.todoList;
+    return todos.data.todoList;
   } catch (error) {
     throw Error(error.message);
   }
@@ -25,12 +26,12 @@ export const addTodo = async (username, todo) => {
     const newTodo = {
       contents: todo,
     };
-    const addedTodo = await fetchApi.post(
+    const addedTodo = await axios.post(
       `${BASE_URL}/${username}/item`,
       JSON.stringify(newTodo)
     );
 
-    return addedTodo;
+    return addedTodo.data.todoList;
   } catch (error) {
     throw Error(error.message);
   }
@@ -38,11 +39,9 @@ export const addTodo = async (username, todo) => {
 
 export const deleteTodo = async (username, id) => {
   try {
-    const response = await fetchApi.delete(
-      `${BASE_URL}/${username}/item/${id}`
-    );
+    const response = await axios.delete(`${BASE_URL}/${username}/item/${id}`);
 
-    return response;
+    return response.data.todoList;
   } catch (error) {
     throw Error(error.message);
   }
@@ -76,12 +75,12 @@ export const editTodoContents = async (username, id, contents) => {
       contents,
     };
 
-    const response = await fetchApi.put(
+    const response = await axios.put(
       `${BASE_URL}/${username}/item/${id}`,
       JSON.stringify(newContents)
     );
 
-    return response;
+    return response.data;
   } catch (error) {
     throw Error(error.message);
   }
