@@ -12,7 +12,7 @@ export function createUICounter(el, options) {
 
     $el.html(`
       <button type="button" ${decDisabled} class="btn btn-secondary btn-dec">-</button>
-      <span class="value">${val}</span>
+      <span class="value" data-testid="value">${val}</span>
       <button type="button" ${incDisabled} class="btn btn-primary btn-inc">+</button>
     `);
   }
