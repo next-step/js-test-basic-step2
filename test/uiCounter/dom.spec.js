@@ -1,5 +1,4 @@
-import '@testing-library/jest-dom/extend-expect';
-import { getByText, fireEvent } from '@testing-library/dom';
+import '@testing-library/jest-dom';
 import { createUICounter } from '../../src/uiCounter/counter';
 
 let container;
