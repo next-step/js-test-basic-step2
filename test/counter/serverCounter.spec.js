@@ -7,8 +7,8 @@ import {
   getByText,
   fireEvent
 } from '@testing-library/dom';
-import { createCounter } from '../src/backup/counter';
-import { createServerCounter } from '../src/serverCounter/counter';
+import { createCounter } from '../../src/counter/backup/counter';
+import { createServerCounter } from '../../src/counter/serverCounter/counter';
 
 const INIT_VAL = 10;
 const MIN = 9;

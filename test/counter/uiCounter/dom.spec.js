@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { getByText, fireEvent, getByTestId } from '@testing-library/dom';
-import { createUICounter } from '../../src/uiCounter/counter';
+import { createUICounter } from '../../../src/counter/uiCounter/counter';
 
 const INIT_VAL = 10;
 const MIN = 9;

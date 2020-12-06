@@ -6,10 +6,10 @@
   "scripts": {
     "test": "jest --watch",
     "test:basic": "jest test/basic.spec.js --watch",
-    "test:counter": "jest test/counter.spec.js --watch",
-    "test:uiCounter": "jest test/uiCounter/dom.spec.js --watch",
-    "test:html": "jest test/uiCounter/html.spec.js --watch",
-    "test:serverCounter": "jest test/serverCounter.spec.js --watch",
+    "test:counter": "jest test/counter/counter.spec.js --watch",
+    "test:uiCounter": "jest test/counter/uiCounter/dom.spec.js --watch",
+    "test:html": "jest test/counter/uiCounter/html.spec.js --watch",
+    "test:serverCounter": "jest test/counter/serverCounter.spec.js --watch",
     "test:coverage": "jest --coverage",
     "app:uiCounter": "parcel uiCounter.html",
     "app:serverCounter": "node ./serverCounterBundle.js"
