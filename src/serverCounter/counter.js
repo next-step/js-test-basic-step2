@@ -2,9 +2,8 @@ import $ from 'jquery';
 import axios from 'axios';
 import { createCounter } from '../backup/counter';
 
-export function createServerCounter(el, options) {
+export function createServerCounter(el) {
   const $el = $(el);
-  const counter = createCounter(options);
 
   function render({ value, isMax, isMin }) {
     const decDisabled = isMin ? 'disabled' : '';
