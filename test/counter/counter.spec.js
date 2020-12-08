@@ -1,4 +1,4 @@
-import { createCounter } from '../../src/counter/counter';
+import { createCounter } from '@/counter/counter';
 
 // Step 1
 describe('옵션이 지정되지 않은 경우', () => {

@@ -1,9 +1,9 @@
 import '@testing-library/jest-dom/extend-expect';
 import { getByText, fireEvent } from '@testing-library/dom';
-import { createUICounter } from '../../src/uiCounter/counter';
-import { createCounter } from '../../src/backup/counter';
+import { createUICounter } from '@/counter/uiCounter/counter';
+import { createCounter } from '@/counter/backup/counter';
 
-jest.mock('../../src/backup/counter');
+jest.mock('@/counter/backup/counter');
 
 let container;
 
