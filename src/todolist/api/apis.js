@@ -9,7 +9,7 @@ export const init = async () => {
     users,
     currentUser: users[0]?._id,
     todoList: users[0]?.todoList || [],
-    currentFilter: parseHash(location.hash) || FILTER.ALL,
+    currentFilter: parseHash(location.hash) || FILTER.ALL
   };
 };
 
@@ -20,7 +20,7 @@ export const addUser = async ({ name }) => {
   return {
     users,
     currentUser: user._id,
-    todoList: user.todoList,
+    todoList: user.todoList
   };
 };
 
@@ -31,23 +31,23 @@ export const deleteUser = async ({ userId }) => {
   return {
     users,
     currentUser: users[0]?._id,
-    todoList: users[0]?.todoList || [],
+    todoList: users[0]?.todoList || []
   };
 };
 
 export const changeUser = async ({ id }) => ({
   currentUser: id,
-  todoList: await API.GET('/users/' + id + '/items'),
+  todoList: await API.GET('/users/' + id + '/items')
 });
 
 export const addTodo = async ({ contents, userId }) => ({
   todoItem: await API.POST('/users/' + userId + '/items', {
-    contents,
-  }),
+    contents
+  })
 });
 
 export const deleteTodo = async ({ id, userId }) => ({
-  todoList: (await API.DELETE('/users/' + userId + '/items/' + id)).todoList,
+  todoList: (await API.DELETE('/users/' + userId + '/items/' + id)).todoList
 });
 
 export const deleteAllTodos = async ({ userId }) => {
@@ -56,17 +56,17 @@ export const deleteAllTodos = async ({ userId }) => {
 };
 
 export const toggleTodo = async ({ id, userId }) => ({
-  todoItem: await API.PUT('/users/' + userId + '/items/' + id + '/toggle'),
+  todoItem: await API.PUT('/users/' + userId + '/items/' + id + '/toggle')
 });
 
 export const updateTodo = async ({ id, contents, userId }) => ({
   todoItem: await API.PUT('/users/' + userId + '/items/' + id, {
-    contents,
-  }),
+    contents
+  })
 });
 
 export const setPriority = async ({ id, priority, userId }) => ({
   todoItem: await API.PUT('/users/' + userId + '/items/' + id + '/priority', {
-    priority,
-  }),
+    priority
+  })
 });

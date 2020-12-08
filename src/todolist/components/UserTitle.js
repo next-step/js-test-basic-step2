@@ -24,6 +24,6 @@ export default class UserTitle {
   }
 
   render(name = 'your') {
-    this.$title.innerHTML = `<span><strong>${name}</strong>'s Todo List</span>`;
+    this.$title.innerHTML = `<span data-testid="todo-count"><strong>${name}</strong>'s Todo List</span>`;
   }
 }

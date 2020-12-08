@@ -8,7 +8,7 @@ import {
   deleteAllTodos,
   toggleTodo,
   updateTodo,
-  setPriority,
+  setPriority
 } from './api/apis.js';
 import eventChannel from './core/eventChannel.js';
 const { done, when } = eventChannel;
@@ -20,11 +20,9 @@ export default class Store {
   #state;
 
   constructor() {
-    [
-      VIEW.INIT, 
-      VIEW.ADD_USER, 
-      VIEW.DELETE_USER
-    ].forEach((action) => when(action, (data) => this.requestAll(data)));
+    [VIEW.INIT, VIEW.ADD_USER, VIEW.DELETE_USER].forEach((action) =>
+      when(action, (data) => this.requestAll(data))
+    );
 
     [
       VIEW.CHANGE_USER,
@@ -33,7 +31,7 @@ export default class Store {
       VIEW.DELETE_ALL_TODOS,
       VIEW.TOGGLE_TODO,
       VIEW.UPDATE_TODO,
-      VIEW.SET_PRIORITY,
+      VIEW.SET_PRIORITY
     ].forEach((action) => when(action, (data) => this.requestTodo(data)));
 
     when(VIEW.CHANGE_FILTER, (data) => this.changeFilter(data));
@@ -93,20 +91,20 @@ export default class Store {
   changeFilter({ currentFilter, type }) {
     this.dispatch({
       type,
-      payload: { currentFilter },
+      payload: { currentFilter }
     });
   }
 
   dispatch(action) {
     const { type, state } = this.reducer(this.#state, action);
     this.#state = state;
-    console.info('current state', this.#state);
+    // console.info('current state', this.#state);
     done(type, this.#state);
   }
 
   reducer(state, action) {
     const { type, payload } = action;
-    console.info('action', type);
+    // console.info('action', type);
 
     const { todoItem } = payload;
 
@@ -116,24 +114,24 @@ export default class Store {
           type: STORE.UPDATE_TODO,
           state: {
             ...state,
-            todoList: [...state.todoList, todoItem],
-          },
+            todoList: [...state.todoList, todoItem]
+          }
         };
       case VIEW.DELETE_TODO:
         return {
           type: STORE.UPDATE_TODO,
           state: {
             ...state,
-            ...payload,
-          },
+            ...payload
+          }
         };
       case VIEW.DELETE_ALL_TODOS:
         return {
           type: STORE.UPDATE_TODO,
           state: {
             ...state,
-            todoList: [],
-          },
+            todoList: []
+          }
         };
       case VIEW.TOGGLE_TODO:
       case VIEW.UPDATE_TODO:
@@ -144,16 +142,16 @@ export default class Store {
             ...state,
             todoList: state.todoList.map((todo) =>
               todo._id === todoItem._id ? todoItem : todo
-            ),
-          },
+            )
+          }
         };
       case VIEW.CHANGE_FILTER:
         return {
           type: STORE.UPDATE_TODO,
           state: {
             ...state,
-            ...payload,
-          },
+            ...payload
+          }
         };
       case VIEW.INIT:
       case VIEW.ADD_USER:
@@ -163,8 +161,8 @@ export default class Store {
           type: STORE.UPDATE_ALL,
           state: {
             ...state,
-            ...payload,
-          },
+            ...payload
+          }
         };
     }
   }

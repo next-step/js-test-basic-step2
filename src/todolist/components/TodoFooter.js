@@ -15,7 +15,7 @@ export default class TodoFooter {
   constructor() {
     this.$counterContainer = DOM.div({
       class: 'count-container',
-      onclick: onFooterClickHandler,
+      onclick: onFooterClickHandler
     });
 
     this.render();
@@ -31,7 +31,7 @@ export default class TodoFooter {
 
   render({ todoCount = 0, currentFilter = 'all' } = {}) {
     this.$counterContainer.innerHTML = `
-      <span class="todo-count">총 <strong>${todoCount}</strong> 개</span>
+      <span class="todo-count" data-testid="todo-count">총 <strong>${todoCount}</strong> 개</span>
         <ul class="filters">
           ${FILTER_LIST.map(
             (filter) =>

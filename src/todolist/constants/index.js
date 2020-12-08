@@ -14,20 +14,20 @@ export const ACTIONS = {
     TOGGLE_TODO: 'view/toggleTodo',
     UPDATE_TODO: 'view/updateTodo',
     SET_PRIORITY: 'view/setPriority',
-    CHANGE_FILTER: 'view/changeFilter',
+    CHANGE_FILTER: 'view/changeFilter'
   },
   STORE: {
     UPDATE_ALL: 'store/updateAll',
     UPDATE_TODO: 'store/updateTodo',
     REQUEST_ALL: 'store/requestAll',
-    REQUEST_TODO: 'store/requestTodo',
-  },
+    REQUEST_TODO: 'store/requestTodo'
+  }
 };
 
 export const FILTER = {
   ALL: 'all',
   ACTIVE: 'active',
-  COMPLETED: 'completed',
+  COMPLETED: 'completed'
 };
 
 export const FILTER_LIST = Object.values(FILTER);
@@ -35,7 +35,7 @@ export const FILTER_LIST = Object.values(FILTER);
 export const FILTER_TEXT = {
   all: '전체 보기',
   active: '해야할 일',
-  completed: '완료한 일',
+  completed: '완료한 일'
 };
 
 export const PRIORITY = ['NONE', 'FIRST', 'SECOND'];
@@ -44,7 +44,7 @@ export const MESSAGES = {
   ADD_USER: '추가하고 싶은 이름을 입력해주세요.',
   FAILED_ADD_USER: '이름은 최소 2글자 이상이어야 합니다.',
   DELETE_USER: '현재 유저를 삭제하시겠습니까?',
-  DELETE_ALL_TODOS: '모든 할 일 목록을 삭제하시겠습니까?',
+  DELETE_ALL_TODOS: '모든 할 일 목록을 삭제하시겠습니까?'
 };
 
 export const MINIMUM_USER_NAME_LENGTH = 2;
@@ -169,5 +169,5 @@ export const HTML_TAG_NAMES = [
   'u',
   'ul',
   'video',
-  'wbr',
+  'wbr'
 ];
