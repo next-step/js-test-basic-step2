@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import prettyHTML from 'diffable-html';
-import { createUICounter } from '../../src/uiCounter/counter';
+import { createUICounter } from '@/counter/uiCounter/counter';
 
 let $container;
 

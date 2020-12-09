@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { createUICounter } from '../../src/uiCounter/counter';
+import { createUICounter } from '@/counter/uiCounter/counter';
 
 let $el;
 
